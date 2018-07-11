@@ -12,4 +12,12 @@ h2 {
     font-family: 'Galada', cursive;
     text-align: center;
     color: purple;
+    z-index: 1;
+    font-size: 300%;
+}
+h3 {
+    font-family: 'Galada', cursive;
+    color: purple;
+    text-align: center;
+    z-index: 1;
 }
