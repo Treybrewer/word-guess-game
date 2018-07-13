@@ -12,21 +12,17 @@ console.log(choosenAnswer);
 console.log(underscores);
 var userGuessarray = [];
 var wrong = [];
-document.onkeydown = function(event){
-    
+document.onkeyup = function(event){
+    var keypressed = [];
     console.log(event.key);
-    userGuessarray.push(event.key);
+    keypressed.push(event.key);
     console.log(userGuessarray);
     var wrongletters = document.getElementById("wrongletters");
-    
+    userGuessarray.push(keypressed);
 
-    for (var i = 0; i < choosenAnswer.length; i++) {
-        if (userGuessarray === choosenAnswer[i]) {
-            underscores.innerHTML = userGuessarray;
-        }
+    for (var i = 0; i < choosenAnswer.length; i++) 
         else{
-            wrong.push(event.key);
-            wrong = wrongletters.innerHTML;
+           
         }
     }
        
