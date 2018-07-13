@@ -23,19 +23,46 @@ h2 {
 }
 h3 {
     font-family: 'Galada', cursive;
+    font-size: 200%;
     color: purple;
     text-align: center;
     z-index: 1;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px white, 0 0 30px white, 0 0 40px white, 0 0 55px white, 0 0 75px white;    
-    text-decoration-style: solid;
-    text-decoration-line: overline;
     text-decoration-color: purple;
     text-emphasis: 100px;
 }
 p {
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px white, 0 0 30px white, 0 0 40px white, 0 0 55px white, 0 0 75px white;    
-    text-decoration-style: solid;
-    text-decoration-line: overline;
     text-decoration-color: purple;
     text-emphasis: 100px;
+    text-align: center;
+    color: purple;
+    font-size: 150%;
 }
+.letters {
+    font-size: 250%;
+   
+}
+.spaces {
+    font-size: 225%;
+    text-shadow: 0 0 5px white, 0 0 10px white, 0 0 20px  white, 0 0 30px white, 0 0 40px white, 0 0 55px white, 0 0 75px white;
+    z-index: 1;
+    text-decoration-style: double;
+    text-decoration-line: underline;
+    text-decoration-color: purple;
+    text-emphasis: 100px;
+    
+}
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+    .counter {
+        margin-left: -25%;
+    }
+    
+    
+  }
+  

@@ -24,11 +24,7 @@
 
 <body>
     <div class="row">
-        <div class="col-sm-1">
-            <h3>Wins:<strong>_</strong>
-            </h3>
-        </div>
-        <div class="col-sm-10">
+        <div class="col-sm-12">
             <header>
                 <h1>Around the World!
                     <h2>Hangman!</h2>
@@ -37,37 +33,45 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-1">
-            <h3>Loses:<strong>_</strong>
+        <div class="col-sm-2">
+            <h3 class="counter">Wins:<strong>_</strong>
             </h3>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-1">
-            <h3>Guesses Remaining:<strong>_</strong>
-            </h3>
-        </div>
-    </div>
-    <div class="container">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-2">
+                <h3 class="counter">Loses:<strong>_</strong>
+                </h3>
+            </div>
+            <div class="col-sm-8">
                 <h3>Intructions</h3>
-                <p>Guess the name of the continent by the amount of spaces provided below. 
-                     Pay attention to the amount of guesses you have left! </p>
+                <p>
+                    <strong>Guess the name of the
+                        <u>continent</u>
+                        <br>by the amount of spaces provided below.
+                        <br> Pay attention to the amount of guesses you have left!
+                </p>
+                </strong>
             </div>
         </div>
-    </div>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="row">
-        <div class="col-sm-12">
-            <h3>Letters:</h3>
+        <div class="col-sm-3">
+            <h3>Guesses Remaining:
+                <strong>_</strong>
+            </h3>
+        </div>
+        <div class="col-sm-6">
+            <h3 class="letters">Letters:</h3>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-0">
-        </div>
         <div class="col-sm-12">
-            <h3>
-                <strong>_ _ _ _ _ _ _ _ </strong>
+            <h3 id="underscores" class="spaces">
+                <strong>_ &ensp;_ &ensp;_ &ensp;_ &ensp;_ &ensp;_ &ensp;_ &ensp;_ </strong>
             </h3>
         </div>
     </div>
