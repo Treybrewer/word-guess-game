@@ -1,37 +1,21 @@
-// create right answer words
+// create variables and arrays
 var correctAnswer = ['asia', 'africa', 'europe', 'northamerica', 'southamerica', 'australia', 'antarctica'];
-// choose one of the answer words randomly
 var randomAnswer = (Math.floor(Math.random() * correctAnswer.length));
 var choosenAnswer = correctAnswer[randomAnswer];
-var guessRemaining = choosenAnswer.length;
-var underscores = [];
-var input = [];
+var guessRemaining = [5];
+var underscores = document.getElementById("underscores");
 var wronginput = [];
-console.log(guessRemaining);
+var win = [0];
+var lose = [0];
+// create user input capture
 console.log(choosenAnswer);
-// show correct number of underscores
-// collect user guess
- document.onkeypress = function(event){
-     input = event.key;
-     if (choosenAnswer.indexOf(input) > -1) 
-     {
-        for(var i = 0; i < choosenAnswer.length; i++) {
-            if(choosenAnswer[i] === input) {
-                underscores[i] = input;
-                console.log(underscores);
-            }
-        }
-     }
+var inputArray = [];
+ for (var i = 0; i < choosenAnswer.length; i++) {
+ inputArray[i] = "_";
+ }
+ var remainingLetters = choosenAnswer.length;
 
-     else {
+// create a way to check the user input against the right answer
 
-     }
-     
- };
-
-
-console.log(input);
-// check if guess is right or wrong
-// if right win++ guess remaining--// if wrong loses++ guess remaining--
 
   
