@@ -11,7 +11,7 @@ var lose = [0];// this can just be a number, no array
 // create user input capture
 // console.log(underscores);
 var userGuessarray = [];
-// var letterAlreadyGuessed = [];
+var letterAlreadyGuessed = [];
 var isInWord = false;
 
 
@@ -32,12 +32,12 @@ function start() {
 
    // a for loop here will run thru the length of word and push a "_" each time 
    // this will be the displayed underline array you see
-   for (var i = 0; i < lengthOfWord; i++) {
-    userGuessarray.push("_");  // put this code inside the for loop
+//    for (var i = 0; i < lengthOfWord; i++) {
+//     userGuessarray.push(" ");  // put this code inside the for loop
+    
     
 
-   }
-   
+//    }
    underscores.innerHTML = userGuessarray.join("");
   
 
@@ -55,10 +55,10 @@ start();
 
 document.onkeyup = function(event){
     // create if statement to check and see if it's in the alreadyguessed array
-   var currentLetter = event.key;  //gets the current letter
+   var currentLetter = underscores.innerHTML  //gets the current letter
 
-   console.log(event.key);
-//    userGuessarray.push(event.key);
+//    console.log(event.key);
+   userGuessarray.push(event.key);
 //    var wrongletters = document.getElementById("wrongletters");
    
    // this loop only determines if the letter is in the word-----------
@@ -84,14 +84,13 @@ document.onkeyup = function(event){
             userGuessarray[i] = currentLetter;
          }
         
-
+         else {
+            
+           }
+           
         }
    }
-   else {
-    wronginput.push(currentLetter);
-    console.log(wronginput);
-   }
-   
+   console.log(wronginput);
   
     console.log(currentLetter);
    
@@ -108,8 +107,8 @@ document.onkeyup = function(event){
 
    // wrong.push(event.key);
    //         wrong = wrongletters.innerHTML;
+   underscores.innerHTML = userGuessarray;
 
-   // underscores.innerHTML = userGuessarray;
 };
 
 // Message Input
