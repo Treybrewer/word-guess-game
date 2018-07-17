@@ -16,6 +16,7 @@ var isInWord = true;
 var isNotinword = true;
 var letterGuessedArea = document.getElementById("wrongletters");
 var guessRemaining = document.getElementById("guessRemaining");
+var wordlength = document.getElementById("wordlength");
 
 // make a function to pick the word, put it in an array, make the display array
 
@@ -30,21 +31,16 @@ function start() {
     console.log(choosenAnswer);
     // need the length of the chosen word to display the number of blanks too
     lengthOfWord = choosenAnswer.length;
-    guessRemaining.innerHTML = lengthOfWord;
-
-    // a for loop here will run thru the length of word and push a "_" each time 
-    // this will be the displayed underline array you see
-    //    for (var i = 0; i < lengthOfWord; i++) {
-    //     userGuessarray.push(" ");  // put this code inside the for loop
+    guessRemaining.innerHTML = lengthOfWord + 2; // need to add a  couple more guess to guess remaining
+    wordlength.innerHTML = choosenAnswer.length + " letters"; // let the user know how many letters are in the word
+    
 
 
-
-    //    }
-    underscores.innerHTML = userGuessarray.join("");
-    letterGuessedArea.innerHTML = wronginput.join("");
+    underscores.innerHTML = userGuessarray.join("");  // append the userGuessarray you just made above to the underscores var to display in the dom
+    letterGuessedArea.innerHTML = wronginput.join("");  //apend the wronginput array so it can be seen in the dom
 
 
-    // append the userGuessarray you just made above to the underscores var to display in the dom
+   
 
 
 
@@ -55,11 +51,13 @@ start();
 
 
 
-document.onkeyup = function (event) {
+document.onkeyup = function play(event) {
     // create if statement to check and see if it's in the alreadyguessed array
     var currentLetter = event.key;  //gets the current letter
+    guessRemaining.innerHTML--; //need to subtract the guesses remaining after every event.key
+    
 
-    //    console.log(event.key);
+   
 
 
     // this loop only determines if the letter is in the word-----------
@@ -82,11 +80,9 @@ document.onkeyup = function (event) {
         wronginput.push(event.key);
         
     };
+    //write an if state for when the guess remaining hits 0
     
-    if (userGuessarray.length === choosenAnswer.length) {
-        win++
-        
-    }
+    
     
   
     console.log(userGuessarray);
@@ -97,6 +93,8 @@ document.onkeyup = function (event) {
     winArea.innerHTML = win;
     loseArea.innerHTML = lose;
 
+    
+    
 
 };
 
