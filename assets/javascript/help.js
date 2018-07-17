@@ -17,6 +17,7 @@ var isNotinword = true;
 var letterGuessedArea = document.getElementById("wrongletters");
 var guessRemaining = document.getElementById("guessRemaining");
 var wordlength = document.getElementById("wordlength");
+var counter = [];
 
 // make a function to pick the word, put it in an array, make the display array
 
@@ -33,15 +34,14 @@ function start() {
     lengthOfWord = choosenAnswer.length;
     guessRemaining.innerHTML = lengthOfWord + 2; // need to add a  couple more guess to guess remaining
     wordlength.innerHTML = choosenAnswer.length + " letters"; // let the user know how many letters are in the word
-    
+    counter = choosenAnswer.length + 2;
 
 
     underscores.innerHTML = userGuessarray.join("");  // append the userGuessarray you just made above to the underscores var to display in the dom
     letterGuessedArea.innerHTML = wronginput.join("");  //apend the wronginput array so it can be seen in the dom
 
-
-   
-
+    
+  
 
 
 };
@@ -51,11 +51,11 @@ start();
 
 
 
-document.onkeyup = function play(event) {
+document.onkeyup = function () {
     // create if statement to check and see if it's in the alreadyguessed array
     var currentLetter = event.key;  //gets the current letter
     guessRemaining.innerHTML--; //need to subtract the guesses remaining after every event.key
-    
+    counter--;
 
    
 
@@ -82,7 +82,11 @@ document.onkeyup = function play(event) {
     };
     //write an if state for when the guess remaining hits 0
     
-    
+    if (counter < 1) {
+        alert("you lose!");
+        guessRemaining.innerHTML = 0;
+        letterGuessedArea.innerHTML = 0;
+    }
     
   
     console.log(userGuessarray);
@@ -97,4 +101,5 @@ document.onkeyup = function play(event) {
     
 
 };
+
 
