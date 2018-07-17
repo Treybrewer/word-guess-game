@@ -30,8 +30,8 @@ function start() {
     console.log(choosenAnswer);
     // need the length of the chosen word to display the number of blanks too
     lengthOfWord = choosenAnswer.length;
-    guessRemaining.innerHTML = 5;
-    
+    guessRemaining.innerHTML = lengthOfWord;
+
     // a for loop here will run thru the length of word and push a "_" each time 
     // this will be the displayed underline array you see
     //    for (var i = 0; i < lengthOfWord; i++) {
@@ -58,43 +58,45 @@ start();
 document.onkeyup = function (event) {
     // create if statement to check and see if it's in the alreadyguessed array
     var currentLetter = event.key;  //gets the current letter
-    
-        
+
     //    console.log(event.key);
-    
+
 
     // this loop only determines if the letter is in the word-----------
     for (var i = 0; i < choosenAnswer.length; i++) {
         if (currentLetter === choosenAnswer[i]) {  // compares the current letter to the answerArray
             isInWord = true;   // turn this true if the letter is in the word
             userGuessarray[i] = currentLetter;
-            
-        };
+        }
+        else {
+            isInWord = false;  //this will stop the current letter from going into the userguessarray if it is wrong letter
+        }
     };
-        if (currentLetter != choosenAnswer[i]) {
-            isNotinword = true;
-            
-        };
-    
-    if (isNotinword = true) {
+   
+    if (currentLetter !== choosenAnswer[i]) {
+        isNotinword = true;
+
+    };
+
+    if (isNotinword = true) { //this will put the wrong guess in the wrong input array
         wronginput.push(event.key);
         
-        
     };
     
-    if (userGuessarray === choosenAnswer) {
-        win++;
+    if (userGuessarray.length === choosenAnswer.length) {
+        win++
+        
     }
-    else {
-        lose++;
-    };
+    
+  
     console.log(userGuessarray);
     console.log(wronginput);
-    
+
     underscores.innerHTML = userGuessarray;
     letterGuessedArea.innerHTML = wronginput;
     winArea.innerHTML = win;
     loseArea.innerHTML = lose;
+
 
 };
 
