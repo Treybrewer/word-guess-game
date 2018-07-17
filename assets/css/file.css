@@ -53,6 +53,9 @@ p {
     text-emphasis: 100px;
     
 }
+.btn {
+    float: right;
+}
 /* 
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops

@@ -25,10 +25,8 @@ var answer = [];
 
 function start() {
     // trying to clear out variables
-    // underscores = "";
-    // choosenAnswer = "";
-    // wronginput = [];
 
+    underscores.innerHTML = "";
     randomAnswer = (Math.floor(Math.random() * correctAnswer.length));
     choosenAnswer = correctAnswer[randomAnswer];
     answer = choosenAnswer;
@@ -40,8 +38,8 @@ function start() {
     counter = choosenAnswer.length + 2;
 
 
-    underscores.innerHTML = userGuessarray.join("");  // append the userGuessarray you just made above to the underscores var to display in the dom
-    letterGuessedArea.innerHTML = wronginput.join("");  //apend the wronginput array so it can be seen in the dom
+    // underscores.innerHTML = userGuessarray.join("");  // append the userGuessarray you just made above to the underscores var to display in the dom
+    // letterGuessedArea.innerHTML = wronginput.join("");  //apend the wronginput array so it can be seen in the dom
 
 
 
@@ -56,6 +54,8 @@ start();
 
 document.onkeyup = function () {
     // create if statement to check and see if it's in the alreadyguessed array
+
+    
     currentLetter = event.key;  //gets the current letter
     guessRemaining.innerHTML--; //need to subtract the guesses remaining after every event.key
     counter--;
@@ -68,13 +68,13 @@ document.onkeyup = function () {
         if (currentLetter === choosenAnswer[i]) {  // compares the current letter to the answerArray
             isInWord = true;   // turn this true if the letter is in the word
             userGuessarray[i] = currentLetter;
-
+            userGuessarray = userGuessarray.filter(function (entry) { return entry.trim() != ""; });
         }
         else {
             isInWord = false;  //this will stop the current letter from going into the userguessarray if it is wrong letter
         }
     };
-    userGuessarray = userGuessarray.filter(function (entry) { return entry.trim() != ""; });
+
 
     if (currentLetter !== choosenAnswer[i]) {
         isNotinword = true;
@@ -106,11 +106,21 @@ document.onkeyup = function () {
     if (counter === 0) {
         alert("you lose!");
         lose++
+        choosenAnswer = "";
+        wronginput = [];
+        userGuessarray = [];
+        start();
     };
     //write if statement for user winning
     if (userGuessarray.length === choosenAnswer.length) {
         alert("you win!");
         win++
+        userGuessarray = [];
+        choosenAnswer = "";
+        wronginput = [];
+        // userGuessarray = "";
+        start();
+
     };
 
     console.log(userGuessarray);
