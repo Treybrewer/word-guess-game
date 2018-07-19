@@ -64,18 +64,21 @@ document.onkeyup = function () {
 
 
     // this loop only determines if the letter is in the word-----------
-    for (var i = 0; i < choosenAnswer.length; i++) {
+    for (var i = 0; i < choosenAnswer.length++; i++) {
         if (currentLetter === choosenAnswer[i]) {  // compares the current letter to the answerArray
             isInWord = true;   // turn this true if the letter is in the word
             userGuessarray[i] = currentLetter;
-            userGuessarray = userGuessarray.filter(function (entry) { return entry.trim() != ""; });
+            // userGuessarray.push(currentLetter);
+            // userGuessarray = userGuessarray.filter(function (entry) { return entry.trim() != ","; });
         }
         else {
             isInWord = false;  //this will stop the current letter from going into the userguessarray if it is wrong letter
         }
     };
 
-
+    if (isInWord = true){
+        
+    }
     if (currentLetter !== choosenAnswer[i]) {
         isNotinword = true;
 
@@ -112,21 +115,31 @@ document.onkeyup = function () {
         start();
     };
     //write if statement for user winning
-    if (userGuessarray.length === choosenAnswer.length) {
-        alert("you win!");
+    // if (userGuessarray.length === choosenAnswer.length) {
+    //     alert("you win!");
+    //     win++
+    //     userGuessarray = [];
+    //     choosenAnswer = "";
+    //     wronginput = [];
+    //     start();
+
+    // };
+    if (userGuessarray.join("") === choosenAnswer) {
+        // alert("you win!");
+        console.log("you win!");
         win++
         userGuessarray = [];
         choosenAnswer = "";
         wronginput = [];
-        // userGuessarray = "";
+        // var newUrl = [some code to build up URL string];
+        // window.location.replace(newUrl);
         start();
-
     };
 
     console.log(userGuessarray);
     console.log(wronginput);
 
-    underscores.innerHTML = userGuessarray;
+    underscores.innerHTML = userGuessarray.join("");
     letterGuessedArea.innerHTML = wronginput;
     winArea.innerHTML = win;
     loseArea.innerHTML = lose;
